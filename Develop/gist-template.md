@@ -49,19 +49,42 @@ With End Anchor
 
 ### Quantifiers
 
+Quantifiers go after a token and indicate that the preceeding requirements must be met a certain amount of times.
+
+The first quantifier in our expression is the "?" character which says that the preceeding token is optional. Let's look at that group of our expression: (https?:\\/\\/)?
+There are actually two of the optional quantifiers in this section. The first one listed after the https refers to the "s" character. This allows for us to find links that begin with http or https. The second optional quanitifier comes after the entire group. This one says that the entire group is optional. As you can see below, we can find www.google.com even though it does not have a http:// or https:// at the beginning. That is thanks to this quantifier.
+
+![optional quantifer example](https://user-images.githubusercontent.com/56897774/136709011-45e62a33-96e9-4b80-81f5-761331884852.png)
+
+The next type of quantifier in our expression is the "\*" character. This quantifier allows for all of the preceeding token to be matched. We can see this in our group for finding what it beyond the ".com" portion of the link. That group looks like this: ([\\/\\w \\.-]\*)
+This group is looking for any slashes, words, periods, and/or hyphens. If we remove the star quantifier, we will only get the last character found by our expression. See the bottom of this screenshot where the Group 4 text is displayed:
+
+![no star quantifier](https://user-images.githubusercontent.com/56897774/136709383-9e9cb958-b723-4cf0-9fd1-95afe86caa6e.png)
+
+Adding the "\*" after the character set lets us capture the portion rather than the last character:
+
+![star quantifier](https://user-images.githubusercontent.com/56897774/136709430-d30d6306-29d1-453b-849a-adfca34ab112.png)
+
+We also have a "+" quantifier which is similar to the star, but it will match 1 or more of the token that preceeds it. In our case, it's used in group 2: ([\da-z\.-]+)
+Without the plus, we would only be able to find a single character website.
+
+![without plus](https://user-images.githubusercontent.com/56897774/136709855-a923eeaa-3855-46ac-8363-5a9044948513.png)
+
+ Why can't we use a star quantifier in this case? The star will grab the entire section of the URL that we want, *but* the star quantifier will also allow for nothing to be selected. Our expression would recognize any lowercase text that follows a period as a URL if we used the star. The plus requires at least one character to match *and* it will grab all that follows within the parameters.
+
+Now for our last quantifier. The star quantifier let us select 0 or more instances of our token, the plus lets us select 1 or more instances, and the optional lets us select 0 or 1 instance. What if we want a string that's m Let's take a look at the part of the expression that is grabbing the "com" section of our link. That group looks like: "([a-z\.]{2,6})" This 
+
 {2,6}
 
-? optional
-
-* star
-
 ### OR Operator
+
+### Character Classes
+
 
 /d all digits
 
 a-z
 
-### Character Classes
 
 ### Flags
 
