@@ -80,17 +80,17 @@ Now for our last quantifier. The star quantifier let us select 0 or more instanc
 
 ### Character Classes
 
-
-/d all digits
-
-a-z
+In order to determine which characters we want to select, we need to provide a character class in our expression. One type of character class that's listed within our expression is "/d". This stands for all digits and will select characters if they are a number between 0-9. Another class listed is the "/w" which stands for all words. Words are considered any alphanumeric character so it will select and lowercase and uppercase letter as well as an number between 0-9. You'll also notice that there are custom character classes created as well. Groups 2 and 3 have a-z listed which will only select lowercase letters.
 
 
 ### Flags
 
 ### Grouping and Capturing
 
-group 1-4
+You'll notice that the expression has a few parentheses pairs. This helps us to breakdown our selection into groups that can be used later. The whole URL will be matched, but you can see below that the link is broken up into 4 groups. Group 1 lists the http://, group 2 gives the "www." and the website's name, group 3 gives the domain (in this case .com), and group 4 gives any further information on the link. The group names are defaulted, but they can be assigned. If you put "?<Beginning>" within the parentheses of a group, it would assign the name Beginning to that group.
+  
+  ![image](https://user-images.githubusercontent.com/56897774/136715557-701605f9-83a6-4751-95a2-eb0db3878e97.png)
+
 
 ### Bracket Expressions
 
