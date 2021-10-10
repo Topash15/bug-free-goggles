@@ -72,15 +72,13 @@ Without the plus, we would only be able to find a single character website.
 
  Why can't we use a star quantifier in this case? The star will grab the entire section of the URL that we want, *but* the star quantifier will also allow for nothing to be selected. Our expression would recognize any lowercase text that follows a period as a URL if we used the star. The plus requires at least one character to match *and* it will grab all that follows within the parameters.
 
-Now for our last quantifier. The star quantifier let us select 0 or more instances of our token, the plus lets us select 1 or more instances, and the optional lets us select 0 or 1 instance. What if we want a string that's m Let's take a look at the part of the expression that is grabbing the "com" section of our link. That group looks like: "([a-z\.]{2,6})" This 
-
-{2,6}
+Now for our last quantifier. The star quantifier let us select 0 or more instances of our token, the plus quantifier lets us select 1 or more instances, and the optional quantifier lets us select 0 or 1 instance. What if we want a string that's a certain length? Let's take a look at the part of the expression that is grabbing the "com" section of our link. That group looks like: "([a-z\.]{2,6})" Those curly brackets are the key. The 2 and 6 signify that we want between 2 and 6 characters for this group. With this quantifier, the first number is the minimum amount and the second is the maximum. If you want to jus tset a minimum, you can put a single number followed by a comma in the curly brackets like so: {2,}
 
 ### OR Operator
 
 ### Character Classes
 
-In order to determine which characters we want to select, we need to provide a character class in our expression. One type of character class that's listed within our expression is "/d". This stands for all digits and will select characters if they are a number between 0-9. Another class listed is the "/w" which stands for all words. Words are considered any alphanumeric character so it will select and lowercase and uppercase letter as well as an number between 0-9. You'll also notice that there are custom character classes created as well. Groups 2 and 3 have a-z listed which will only select lowercase letters.
+In order to determine which characters we want to select, we need to provide a character class in our expression. One type of character class that's listed within our expression is "/d". This stands for all digits and will select characters if they are a number between 0-9. Another class listed is the "/w" which stands for all words. Words are considered any alphanumeric character so it will select and lowercase and uppercase letter as well as an number between 0-9. If there are more specific characters that you want to select, you would specify with a character set. A character set requires squared brackets "[]"
 
 
 ### Flags
