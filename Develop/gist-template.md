@@ -1,10 +1,10 @@
-# Title (replace with your title)
+# Regex URL Tutorial
 
 Introductory paragraph (replace this with your text)
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+In this tutorial, we'll take a look at an expression meant to find a URL. 
 
 Matching a URL – /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
 
@@ -12,15 +12,12 @@ Matching a URL – /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
 - [Character Classes](#character-classes)
 - [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
 - [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
 
@@ -72,7 +69,7 @@ Without the plus, we would only be able to find a single character website.
 
  Why can't we use a star quantifier in this case? The star will grab the entire section of the URL that we want, *but* the star quantifier will also allow for nothing to be selected. Our expression would recognize any lowercase text that follows a period as a URL if we used the star. The plus requires at least one character to match *and* it will grab all that follows within the parameters.
 
-Now for our last quantifier. The star quantifier let us select 0 or more instances of our token, the plus quantifier lets us select 1 or more instances, and the optional quantifier lets us select 0 or 1 instance. What if we want a string that's a certain length? Let's take a look at the part of the expression that is grabbing the "com" section of our link. That group looks like: "([a-z\.]{2,6})" Those curly brackets are the key. The 2 and 6 signify that we want between 2 and 6 characters for this group. With this quantifier, the first number is the minimum amount and the second is the maximum. If you want to jus tset a minimum, you can put a single number followed by a comma in the curly brackets like so: {2,}
+Now for our last quantifier. The star quantifier let us select 0 or more instances of our token, the plus quantifier lets us select 1 or more instances, and the optional quantifier lets us select 0 or 1 instance. What if we want a string that's a certain length? Let's take a look at the part of the expression that is grabbing the "com" section of our link. That group looks like: "([a-z\.]{2,6})" Those curly brackets are the key. The 2 and 6 signify that we want between 2 and 6 characters for this group. With this quantifier, the first number is the minimum amount and the second is the maximum. If you want to just set a minimum, you can put a single number followed by a comma in the curly brackets like so: {2,}
 
 ### OR Operator
 
