@@ -1,50 +1,37 @@
 # Regex URL Tutorial
-
-Introductory paragraph (replace this with your text)
+What is Regex? Looking at an example of a regex expression, you may think that someone's cat just walked across their keyboard. I assure you that there is more to it. Regex is a rather powerful tool that can be used to parse through text and find what you want based on the parameters set. The expressions certainly take some getting used to, but there's a method to the madness and once you understand the different components, it is much easier to read.
 
 ## Summary
 
-In this tutorial, we'll take a look at an expression meant to find a URL. 
+What better way to learn than walking through an example? In this tutorial, we'll take a look at an expression meant to find a URL. 
 
-Matching a URL – /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+The expression we'll look it is as follows: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
 
 ## Table of Contents
 
-- [Anchors](#anchors)
-- [Quantifiers](#quantifiers)
 - [Character Classes](#character-classes)
-- [Flags](#flags)
+- [Quantifiers](#quantifiers)
 - [Grouping and Capturing](#grouping-and-capturing)
+- [Anchors](#anchors)
+
+
+- [Flags](#flags)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
 - [Boundaries](#boundaries)
 
 ## Regex Components
 
-### Anchors
+### Character Classes
 
-  Taking a look at our URL expression, there are two anchors that stand out. The first anchor is listed right at the start. The "^" character means the expression will match the beginning of the string. Without this beginning anchor, there can be characters before the url that we are trying to target.
+In order to determine which characters we want to select, we need to provide a character class in our expression. One type of character class that's listed within our expression is "/d". This stands for all digits and will select characters if they are a number between 0-9.
 
-Without Beginning Anchor
+Another class listed is the "/w" which stands for all words. Words are considered any alphanumeric character so it will select and lowercase and uppercase letter as well as an number between 0-9. 
 
-![withoutAnchor](https://user-images.githubusercontent.com/56897774/136708029-1f1aa5e4-e871-492b-8b7b-26fd04470057.png)
-
-With Beginning Anchor
-
-![withAnchor](https://user-images.githubusercontent.com/56897774/136708037-89a4683e-8a3d-4eaa-877d-6a0b3c94d945.png)
-
-
-  At the other end of the expression is a $. This is the opposite of the "^" beginning anchor. The "$" character matches to the end of the string (or line depending on the multiline flag). Removing the end anchor would allow for text to be added beyond the link that we are targeting.
-
-Without End Anchor
-
-![withoutEndAnchor](https://user-images.githubusercontent.com/56897774/136708316-6fa1c46d-b9f5-4d12-a117-cf67a6f687d1.png)
-
-With End Anchor
-
-![withAnchor](https://user-images.githubusercontent.com/56897774/136708327-184be0fc-d698-4b7b-967a-b91fab67361b.png)
-
-### Quantifiers
+If there are more specific characters that you want to select, you would specify with a character set. A character set requires squared brackets "[]". Within the character set, you can specify a range of numbers or letters. Let's take a look at a portion of our example. There's a character class that looks like this: [\da-z\.-]
+This will find any digits (because of the \d), any lowercase letters (because of the a-z), and it will also look for a "." and "-". Note that the period has a slash before it. That is because a period without that slash says to match any character except for a line break. If we're just looking for the period character itself, we put a slash before it.
+  
+  ### Quantifiers
 
 Quantifiers go after a token and indicate that the preceeding requirements must be met a certain amount of times.
 
@@ -71,21 +58,39 @@ Without the plus, we would only be able to find a single character website.
 
 Now for our last quantifier. The star quantifier let us select 0 or more instances of our token, the plus quantifier lets us select 1 or more instances, and the optional quantifier lets us select 0 or 1 instance. What if we want a string that's a certain length? Let's take a look at the part of the expression that is grabbing the "com" section of our link. That group looks like: "([a-z\.]{2,6})" Those curly brackets are the key. The 2 and 6 signify that we want between 2 and 6 characters for this group. With this quantifier, the first number is the minimum amount and the second is the maximum. If you want to just set a minimum, you can put a single number followed by a comma in the curly brackets like so: {2,}
 
-### OR Operator
-
-### Character Classes
-
-In order to determine which characters we want to select, we need to provide a character class in our expression. One type of character class that's listed within our expression is "/d". This stands for all digits and will select characters if they are a number between 0-9. Another class listed is the "/w" which stands for all words. Words are considered any alphanumeric character so it will select and lowercase and uppercase letter as well as an number between 0-9. If there are more specific characters that you want to select, you would specify with a character set. A character set requires squared brackets "[]"
-
-
-### Flags
-
 ### Grouping and Capturing
 
 You'll notice that the expression has a few parentheses pairs. This helps us to breakdown our selection into groups that can be used later. The whole URL will be matched, but you can see below that the link is broken up into 4 groups. Group 1 lists the http://, group 2 gives the "www." and the website's name, group 3 gives the domain (in this case .com), and group 4 gives any further information on the link. The group names are defaulted, but they can be assigned. If you put "?<Beginning>" within the parentheses of a group, it would assign the name Beginning to that group.
   
   ![image](https://user-images.githubusercontent.com/56897774/136715557-701605f9-83a6-4751-95a2-eb0db3878e97.png)
 
+### Anchors
+
+  Taking a look at our URL expression, there are two anchors that stand out. The first anchor is listed right at the start. The "^" character means the expression will match the beginning of the string. Without this beginning anchor, there can be characters before the url that we are trying to target.
+
+Without Beginning Anchor
+
+![withoutAnchor](https://user-images.githubusercontent.com/56897774/136708029-1f1aa5e4-e871-492b-8b7b-26fd04470057.png)
+
+With Beginning Anchor
+
+![withAnchor](https://user-images.githubusercontent.com/56897774/136708037-89a4683e-8a3d-4eaa-877d-6a0b3c94d945.png)
+
+
+  At the other end of the expression is a $. This is the opposite of the "^" beginning anchor. The "$" character matches to the end of the string (or line depending on the multiline flag). Removing the end anchor would allow for text to be added beyond the link that we are targeting.
+
+Without End Anchor
+
+![withoutEndAnchor](https://user-images.githubusercontent.com/56897774/136708316-6fa1c46d-b9f5-4d12-a117-cf67a6f687d1.png)
+
+With End Anchor
+
+![withAnchor](https://user-images.githubusercontent.com/56897774/136708327-184be0fc-d698-4b7b-967a-b91fab67361b.png)
+
+
+### OR Operator
+
+### Flags
 
 ### Bracket Expressions
 
