@@ -84,7 +84,7 @@ With End Anchor
 
 ### Flags
   
-  As you look through some of these examples, you can see at the end there's a "/gm" at the end of the expression. These are called flags. They are actually 2 different flags "g" and "m". Flags modify how the search is interpretted. The "g" or global flag allows for multiple matches. Without this, we could only find the first URL. The "m" or multiline flag allows us handle multiple lines.
+  As you look through some of these examples, you can see at the end there's a "/gm" at the end of the expression. These are called flags. They are actually 2 different flags "g" and "m". Flags modify how the search is interpretted. The "g" or global flag allows for multiple matches. Without this, we could only find the first URL. The "m" or multiline flag allows us handle multiple lines which lets us treat each line as a new line so we can find each url on a new line.
 
 
 ## Author
