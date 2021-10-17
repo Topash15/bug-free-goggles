@@ -13,12 +13,7 @@ The expression we'll look it is as follows: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z
 - [Quantifiers](#quantifiers)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Anchors](#anchors)
-
-
 - [Flags](#flags)
-- [Bracket Expressions](#bracket-expressions)
-- [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
 
 ## Regex Components
 
@@ -87,21 +82,13 @@ With End Anchor
 
 ![withAnchor](https://user-images.githubusercontent.com/56897774/136708327-184be0fc-d698-4b7b-967a-b91fab67361b.png)
 
-
-### OR Operator
-
 ### Flags
+  
+  As you look through some of these examples, you can see at the end there's a "/gm" at the end of the expression. These are called flags. They are actually 2 different flags "g" and "m". Flags modify how the search is interpretted. The "g" or global flag allows for multiple matches. Without this, we could only find the first URL. The "m" or multiline flag allows us handle multiple lines.
 
-### Bracket Expressions
-
-### Greedy and Lazy Match
-
-### Boundaries
-
-### Back-references
-
-### Look-ahead and Look-behind
 
 ## Author
-
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+  
+  #### About Alex
+  
+  I am currently a student in a full-stack web development bootcamp by UCF. You can take a look at some of my projects in my github profile: [Topash15](https://github.com/Topash15)
